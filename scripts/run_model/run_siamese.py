@@ -144,13 +144,13 @@ def main():
     model_save_file_path = paths['model_save_file_path']
     model_save_dir = paths['model_save_dir']
     data_manager_pickle_file_path = paths['data_manager_pickle_file_path']
+    CodeInstance.set_token_file(config.token_file_dir, config.token_file_ext)
 
     if mode == "train":
         # Read the train data from a file, and use it to index the validation data
 
         # TODO: determine from config
         # data_manager = DataManager(STSInstance)
-        CodeInstance.set_token_file(config.token_file_dir, config.token_file_ext)
         data_manager = DataManager(CodeInstance)
         num_sentence_words = config.num_sentence_words
         get_train_data_gen, train_data_size = data_manager.get_train_data_from_file(
